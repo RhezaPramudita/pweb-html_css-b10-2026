@@ -36,33 +36,71 @@ body {
 ========================= */
 
 nav {
-    height: 80px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background-color: rgba(0, 0, 0, 0.3);
-
-    backdrop-filter: blur(8px);
+    height: 70px;
 
     position: fixed;
 
-    top: 0;
-    left: 0;
+    top: 20px;
+    left: 50%;
 
-    width: 100%;
+    width: max-content;
+
+    padding: 0 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(20, 20, 20, 0.75);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 50px;
 
     z-index: 1000;
+
+    animation: navbar-scroll linear both;
+
+    animation-timeline: scroll(root);
+
+    animation-range: 0px 250px;
 }
 
+
+/* =========================
+   NAVBAR SCROLL ANIMATION
+========================= */
+
+@keyframes navbar-scroll {
+
+    from {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translate(-50%, -120px);
+        opacity: 0;
+    }
+
+}
+
+
+/* =========================
+   NAV LIST
+========================= */
+
 #nav {
+
     display: flex;
 
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 
-    gap: 45px;
+    gap: 35px;
 
     margin: 0;
     padding: 0;
@@ -70,25 +108,95 @@ nav {
     list-style: none;
 }
 
+
+/* =========================
+   NAV LINKS
+========================= */
+
 #nav a {
+
+    position: relative;
+
     display: inline-block;
 
-    color: white;
+    color: rgba(255, 255, 255, 0.65);
 
     text-decoration: none;
 
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 12px;
 
-    padding-bottom: 5px;
+    font-weight: 500;
 
-    transition: 0.3s;
+    letter-spacing: 1px;
+
+    padding: 8px 2px;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
 }
 
-#nav a:hover {
-    color: #aaa;
 
-    border-bottom: 1px solid white;
+/* =========================
+   UNDERLINE
+========================= */
+
+#nav a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 0;
+
+    width: 0;
+    height: 1px;
+
+    background: white;
+
+    transform: translateX(-50%);
+
+    transition:
+        width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* =========================
+   HOVER
+========================= */
+
+#nav a:hover {
+
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+
+#nav a:hover::after {
+
+    width: 100%;
+}
+
+
+/* =========================
+   NAVBAR HOVER
+========================= */
+
+nav {
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+nav:hover {
+
+    background: rgba(30, 30, 30, 0.88);
+
+    border-color: rgba(255, 255, 255, 0.22);
 }
 
 
@@ -267,15 +375,10 @@ nav {
 
 #about {
     min-height: 100vh;
-
     padding: 140px 60px;
-
     display: grid;
-
     grid-template-columns: 180px 1fr;
-
     gap: 80px;
-
     align-items: center;
 }
 
@@ -285,36 +388,27 @@ nav {
 
 .about-content h2 {
     margin: 0 0 70px 0;
-
     font-family: "Moderniz", sans-serif;
-
     font-size: clamp(45px, 7vw, 100px);
-
     line-height: 0.95;
 }
 
 .about-grid {
     display: grid;
-
     grid-template-columns: repeat(3, 1fr);
-
     gap: 40px;
 }
 
 .about-grid h3 {
     font-size: 14px;
-
     text-transform: uppercase;
-
     letter-spacing: 1px;
 }
 
 .about-grid p {
     color: #999;
-
     line-height: 1.6;
 }
-
 
 /* =========================
    CAREER
@@ -322,93 +416,222 @@ nav {
 
 #career {
     min-height: 100vh;
-
     padding: 140px 60px;
-
     display: grid;
-
     grid-template-columns: 180px 1fr;
-
     gap: 80px;
 }
-
 .career-content {
     max-width: 1100px;
 }
-
 .career-content > h2 {
-    margin: 0 0 80px 0;
-
+    margin: 0 0 100px 0;
     font-family: "Moderniz", sans-serif;
-
     font-size: clamp(45px, 7vw, 100px);
-
     line-height: 0.95;
 }
 
-
 /* =========================
-   TIMELINE
+   VERTICAL TIMELINE
 ========================= */
 
 .timeline-item {
+    position: relative;
     display: grid;
-
-    grid-template-columns: 120px 1fr 210px;
-
-    gap: 30px;
-
+    grid-template-columns: 120px 1fr 150px;
+    gap: 40px;
     align-items: center;
-
-    padding: 30px 0;
-
-    border-top: 1px solid #333;
+    padding: 45px 0 45px 40px;
+    border-top: none;
+    /* garis timeline */
+    border-left: 1px solid #444;
+    transition: border-color 0.3s ease;
 }
-
+/* garis terakhir */
 .timeline-item:last-child {
-    border-bottom: 1px solid #333;
+    border-bottom: none;
 }
 
-.year {
-    color: #777;
+/* =========================
+   TIMELINE DOT
+========================= */
 
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: black;
+    border: 1px solid white;
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* =========================
+   YEAR
+========================= */
+
+.timeline-item .year {
+    color: #666;
     font-size: 13px;
+    letter-spacing: 1px;
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+/* =========================
+   CAREER TEXT
+========================= */
+
+.career-text {
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
 }
 
 .career-text h3 {
     margin: 0 0 10px 0;
-
-    font-size: 22px;
+    font-size: 24px;
+    transition:
+        color 0.3s ease;
 }
 
 .career-text p {
     margin: 0;
-
     max-width: 600px;
-
-    color: #999;
-
+    color: #777;
     line-height: 1.6;
+    transition:
+        color 0.3s ease;
 }
+
+
+/* =========================
+   TIMELINE IMAGE
+========================= */
 
 .timeline-images {
     display: flex;
-
     justify-content: flex-end;
-
     gap: 10px;
 }
 
 .timeline-images img {
     width: 90px;
-
     height: 90px;
-
     object-fit: contain;
-
     border-radius: 8px;
+    opacity: 0.45;
+    filter: grayscale(100%);
+    transition:
+        transform 0.4s ease,
+        opacity 0.4s ease,
+        filter 0.4s ease;
 }
 
+/* =========================
+   HOVER EFFECT
+========================= */
+
+.timeline-item:hover::before {
+    transform: translateY(-50%) scale(1.5);
+    background: white;
+    box-shadow:
+        0 0 0 6px rgba(255, 255, 255, 0.08),
+        0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+
+.timeline-item:hover {
+    border-left-color: white;
+}
+
+
+.timeline-item:hover .year {
+    color: white;
+    transform: translateX(5px);
+}
+
+
+.timeline-item:hover .career-text {
+    transform: translateX(8px);
+}
+
+
+.timeline-item:hover .career-text h3 {
+    color: white;
+}
+
+
+.timeline-item:hover .career-text p {
+    color: #aaa;
+}
+
+
+.timeline-item:hover .timeline-images img {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: scale(1.08);
+}
+
+/* =========================
+   MOBILE TIMELINE
+========================= */
+@media (max-width: 768px) {
+
+    #career {
+        padding: 100px 20px;
+        display: block;
+    }
+
+    .career-content > h2 {
+        margin-bottom: 70px;
+        font-size: 45px;
+    }
+
+
+    .timeline-item {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 35px 0 35px 30px;
+        margin-left: 10px;
+        border-left: 1px solid #444;
+    }
+
+    .timeline-item::before {
+        left: -6px;
+        top: 35px;
+        transform: none;
+    }
+
+    .timeline-item:hover::before {
+        transform: scale(1.5);
+    }
+
+    .timeline-item:hover .career-text {
+        transform: translateX(5px);
+    }
+
+
+    .timeline-images {
+        justify-content: flex-start;
+        margin-top: 10px;
+    }
+
+
+    .timeline-images img {
+        width: 80px;
+        height: 80px;
+    }
+}
 
 /* =========================
    EDUCATION
