@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,13 @@
     <title>Mark Zuckerberg</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        @font-face {
+            font-family: "Moderniz";
+            src: url("./font/Moderniz.otf");
+        }
+    </style>
 </head>
 
 <body>
@@ -14,27 +22,78 @@
     <!-- NAVBAR -->
     <header>
         <nav>
-            <h1>Mark Zuckerberg</h1>
-
             <ul id="nav">
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="cv.html#about" target="_blank">About</a></li>
-                <li><a href="cv.html#career" target="_blank">Career</a></li>
-                <li><a href="cv.html#education" target="_blank">Education</a></li>
+
+                <li>
+                    <a href="index.html#home">Home</a>
+                </li>
+
+                <li>
+                    <a href="cv.html">CV</a>
+                </li>
+
+                <li>
+                    <a href="cv.html#contact">Contact</a>
+                </li>
+
             </ul>
         </nav>
     </header>
 
 
-    <!-- LANDING PAGE -->
-    <section id="home">
+    <main>
 
-        <h2>
-            <span class="mark">Mark</span>
-            <span class="zuckerberg">Zuckerberg</span>
-        </h2>
+        <!-- HOME -->
+        <section id="home">
 
-    </section>
+            <div class="hero-title">
+
+                <span class="mark">
+                    MARK
+                </span>
+
+                <span class="zuckerberg">
+                    ZUCKERBERG
+                </span>
+
+            </div>
+
+
+            <div class="hero-bottom">
+
+                <p>
+                    Programmer · Entrepreneur · Technologist
+                </p>
+
+                <span>
+                    SCROLL TO EXPLORE ↓
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- INTRO -->
+        <section class="intro">
+
+            <div class="intro-content">
+
+                <h2>
+                    Building technology
+                    that connects people.
+                </h2>
+
+                <a href="cv.html" class="explore-button">
+                    Explore More
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
 
 </body>
+
 </html>

@@ -1,7 +1,16 @@
+/* =========================
+   FONT
+========================= */
+
 @font-face {
-    font-family: 'Moderniz';
-    src: url('./font/Moderniz.otf');
+    font-family: "Moderniz";
+    src: url("./font/Moderniz.otf");
 }
+
+
+/* =========================
+   RESET
+========================= */
 
 * {
     box-sizing: border-box;
@@ -13,8 +22,12 @@ html {
 
 body {
     margin: 0;
+    padding: 0;
+
     background-color: black;
     color: white;
+
+    font-family: Arial, sans-serif;
 }
 
 
@@ -26,32 +39,30 @@ nav {
     height: 80px;
 
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: center;
 
-    padding: 0 60px;
+    background-color: rgba(0, 0, 0, 0.3);
 
-    background-color: black;
+    backdrop-filter: blur(8px);
 
     position: fixed;
+
     top: 0;
     left: 0;
 
     width: 100%;
+
     z-index: 1000;
-}
-
-nav h1 {
-    margin: 0;
-
-    font-size: 24px;
-    font-family: 'Moderniz', sans-serif;
 }
 
 #nav {
     display: flex;
 
-    gap: 35px;
+    justify-content: center;
+    align-items: center;
+
+    gap: 45px;
 
     margin: 0;
     padding: 0;
@@ -62,23 +73,22 @@ nav h1 {
 #nav a {
     display: inline-block;
 
-    padding-bottom: 5px;
-
     color: white;
 
     text-decoration: none;
 
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
 
-    font-family: 'Poppins', sans-serif;
+    padding-bottom: 5px;
 
     transition: 0.3s;
 }
 
 #nav a:hover {
-    color: #ccc;
-    border-bottom: 2px solid white;
+    color: #aaa;
+
+    border-bottom: 1px solid white;
 }
 
 
@@ -87,49 +97,167 @@ nav h1 {
 ========================= */
 
 #home {
-    min-height: calc(100vh - 80px);
+    min-height: 100vh;
+
     margin-top: 80px;
-    padding: 0 20px;
+
+    padding: 40px 60px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
 
     background-image:
         linear-gradient(
             to right,
-            black 0%,
-            rgba(0, 0, 0, 0.8) 50%,
-            transparent 100%
+            rgba(0, 0, 0, 0.95),
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.15)
         ),
-        url('./images/mark.jpg');
+        url("./images/mark.jpg");
 
     background-size: cover;
-    background-position: center 30%;
+
+    background-position: center;
+
     background-repeat: no-repeat;
 }
 
-#home h2 {
+
+/* =========================
+   HERO TITLE
+========================= */
+
+.hero-title {
     position: relative;
 
-    max-width: 1100px;
     height: 600px;
 
-    margin: 0 auto;
+    max-width: 1200px;
 
-    font-size: 100px;
+    width: 100%;
 
-    font-family: 'Moderniz', sans-serif;
+    margin: auto;
+
+    font-family: "Moderniz", sans-serif;
+
+    font-size: clamp(60px, 11vw, 160px);
 }
 
 .mark {
     position: absolute;
 
-    left: 0;
-    top: 300px;
+    left: -50px;
+
+    top: 120px;
 }
 
 .zuckerberg {
     position: absolute;
 
     right: 0;
-    top: 420px;
+
+    top: 320px;
+}
+
+
+/* =========================
+   HERO BOTTOM
+========================= */
+
+.hero-bottom {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    max-width: 1200px;
+
+    width: 100%;
+
+    margin: auto;
+
+    font-size: 12px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.intro {
+    min-height: 100vh;
+
+    padding: 140px 60px;
+
+    display: flex;
+
+    align-items: center;
+}
+
+.intro-content {
+    max-width: 1100px;
+}
+
+.intro h2 {
+    margin: 0 0 50px 0;
+
+    font-family: "Moderniz", sans-serif;
+
+    font-size: clamp(45px, 7vw, 100px);
+
+    line-height: 0.95;
+}
+
+
+/* =========================
+   EXPLORE BUTTON
+========================= */
+
+.explore-button {
+    display: inline-block;
+
+    color: white;
+
+    text-decoration: none;
+
+    border: 1px solid white;
+
+    padding: 15px 30px;
+
+    font-size: 13px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    transition: 0.3s;
+}
+
+.explore-button:hover {
+    background-color: white;
+
+    color: black;
+}
+
+
+/* =========================
+   SECTION NUMBER
+========================= */
+
+.section-number {
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    color: #888;
+
+    text-transform: uppercase;
 }
 
 
@@ -138,48 +266,53 @@ nav h1 {
 ========================= */
 
 #about {
-    padding: 120px 70px;
+    min-height: 100vh;
+
+    padding: 140px 60px;
+
+    display: grid;
+
+    grid-template-columns: 180px 1fr;
+
+    gap: 80px;
+
+    align-items: center;
 }
 
-#about h4 {
-    max-width: 1000px;
-
-    margin: 0 auto 30px;
-
-    font-size: 35px;
-
-    font-family: 'Moderniz', sans-serif;
+.about-content {
+    max-width: 1100px;
 }
 
-.profil {
-    max-width: 1000px;
-    margin: auto;
+.about-content h2 {
+    margin: 0 0 70px 0;
 
-    padding: 20px;
+    font-family: "Moderniz", sans-serif;
 
-    background-color: #111;
+    font-size: clamp(45px, 7vw, 100px);
 
-    border-left: 4px solid white;
-    border-radius: 8px;
-
-    font-size: 18px;
-    line-height: 1.7;
-
-    font-family: 'Poppins', sans-serif;
-
-    transition: 0.3s;
+    line-height: 0.95;
 }
 
-.profil:hover {
-    transform: translateX(8px);
+.about-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 40px;
 }
 
-.profil p {
-    margin: 0 0 20px;
+.about-grid h3 {
+    font-size: 14px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
 }
 
-.profil p:last-child {
-    margin-bottom: 0;
+.about-grid p {
+    color: #999;
+
+    line-height: 1.6;
 }
 
 
@@ -188,64 +321,92 @@ nav h1 {
 ========================= */
 
 #career {
-    padding: 120px 70px;
+    min-height: 100vh;
+
+    padding: 140px 60px;
+
+    display: grid;
+
+    grid-template-columns: 180px 1fr;
+
+    gap: 80px;
 }
 
-.job {
-    max-width: 1000px;
-
-    margin: auto;
+.career-content {
+    max-width: 1100px;
 }
 
-.job h4 {
-    margin: 0 0 30px;
+.career-content > h2 {
+    margin: 0 0 80px 0;
 
-    font-size: 30px;
+    font-family: "Moderniz", sans-serif;
 
-    font-family: 'Moderniz', sans-serif;
+    font-size: clamp(45px, 7vw, 100px);
+
+    line-height: 0.95;
 }
+
+
+/* =========================
+   TIMELINE
+========================= */
 
 .timeline-item {
     display: grid;
-    grid-template-columns: 1fr 210px;
-    align-items: center;
+
+    grid-template-columns: 120px 1fr 210px;
+
     gap: 30px;
-    margin-bottom: 25px;
+
+    align-items: center;
+
+    padding: 30px 0;
+
+    border-top: 1px solid #333;
 }
 
-.timeline-item p {
+.timeline-item:last-child {
+    border-bottom: 1px solid #333;
+}
+
+.year {
+    color: #777;
+
+    font-size: 13px;
+}
+
+.career-text h3 {
+    margin: 0 0 10px 0;
+
+    font-size: 22px;
+}
+
+.career-text p {
     margin: 0;
-    padding: 20px;
 
-    background-color: #111;
+    max-width: 600px;
 
-    border-left: 4px solid white;
-    border-radius: 8px;
+    color: #999;
 
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.7;
-
-    transition: 0.3s;
-}
-
-.timeline-item p:hover {
-    transform: translateX(8px);
+    line-height: 1.6;
 }
 
 .timeline-images {
     display: flex;
+
+    justify-content: flex-end;
+
     gap: 10px;
-    width: 210px;
-    flex-shrink: 0;
 }
 
 .timeline-images img {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+
+    height: 90px;
 
     object-fit: contain;
 
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
 
@@ -254,43 +415,134 @@ nav h1 {
 ========================= */
 
 #education {
-    padding: 120px 70px;
+    min-height: 100vh;
+
+    padding: 140px 60px;
+
+    display: grid;
+
+    grid-template-columns: 180px 1fr;
+
+    gap: 80px;
 }
 
-.study {
+.education-content {
+    max-width: 1100px;
+}
+
+.education-content h2 {
+    margin: 0 0 80px 0;
+
+    font-family: "Moderniz", sans-serif;
+
+    font-size: clamp(45px, 7vw, 100px);
+
+    line-height: 0.95;
+}
+
+.education-grid {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    border-top: 1px solid #333;
+}
+
+.education-item {
+    display: grid;
+
+    grid-template-columns: 120px 1fr;
+
+    gap: 30px;
+
+    padding: 30px 0;
+
+    border-bottom: 1px solid #333;
+}
+
+.education-item h3 {
+    margin: 0 0 10px 0;
+
+    font-size: 22px;
+}
+
+.education-item p {
+    margin: 0;
+
+    max-width: 600px;
+
+    color: #999;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+#contact {
+    min-height: 80vh;
+
+    padding: 140px 60px;
+
+    display: grid;
+
+    grid-template-columns: 180px 1fr;
+
+    gap: 80px;
+
+    align-items: center;
+
+    border-top: 1px solid #222;
+}
+
+.contact-content {
     max-width: 1000px;
-
-    margin: auto;
 }
 
-.study h4 {
-    margin: 0 0 30px;
+.contact-content h2 {
+    margin: 0 0 25px 0;
 
-    font-size: 30px;
+    font-family: "Moderniz", sans-serif;
 
-    font-family: 'Moderniz', sans-serif;
+    font-size: clamp(50px, 8vw, 110px);
+
+    line-height: 0.95;
 }
 
-.study .timeline p {
-    margin: 0 0 20px;
+.contact-content p {
+    color: #999;
 
-    padding: 20px;
+    font-size: 18px;
+}
 
-    background-color: #111;
+.contact-links {
+    display: flex;
 
-    border-left: 4px solid white;
+    gap: 35px;
 
-    border-radius: 8px;
+    margin-top: 50px;
+}
 
-    font-family: 'Poppins', sans-serif;
+.contact-links a {
+    color: white;
 
-    line-height: 1.7;
+    text-decoration: none;
+
+    font-size: 14px;
+
+    padding-bottom: 7px;
+
+    border-bottom: 1px solid #444;
 
     transition: 0.3s;
 }
 
-.study .timeline p:hover {
-    transform: translateX(8px);
+.contact-links a:hover {
+    color: #aaa;
+
+    border-bottom-color: white;
 }
 
 
@@ -301,107 +553,145 @@ nav h1 {
 @media (max-width: 768px) {
 
     /* NAVBAR */
-    nav {
-        height: auto;
-        padding: 15px 20px;
-        flex-direction: column;
-        gap: 15px;
-    }
 
-    nav h1 {
-        font-size: 20px;
-        text-align: center;
+    nav {
+        height: 70px;
+
+        padding: 0 20px;
     }
 
     #nav {
-        gap: 15px;
-        justify-content: center;
-        flex-wrap: wrap;
+        gap: 20px;
     }
 
     #nav a {
-        font-size: 12px;
+        font-size: 11px;
     }
 
 
     /* HOME */
+
     #home {
-        min-height: 100vh;
-        margin-top: 100px;
-        padding: 0 20px;
+        margin-top: 70px;
+
+        padding: 20px;
     }
 
-    #home h2 {
+    .hero-title {
         height: 500px;
-        max-width: 100%;
-        margin: 0;
-        font-size: 50px;
+
+        font-size: 55px;
     }
 
     .mark {
         left: 0;
+
         top: 100px;
     }
 
     .zuckerberg {
         right: 0;
+
         top: 280px;
+    }
+
+    .hero-bottom {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+
+    /* INTRO */
+
+    .intro {
+        padding: 100px 20px;
+
+        display: flex;
+
+        align-items: center;
+    }
+
+    .intro h2 {
+        margin-bottom: 40px;
+
+        font-size: 50px;
+    }
+
+
+    /* GENERAL SECTIONS */
+
+    #about,
+    #career,
+    #education,
+    #contact {
+        padding: 100px 20px;
+
+        display: block;
+    }
+
+    .section-number {
+        margin-bottom: 40px;
     }
 
 
     /* ABOUT */
-    #about,
-    #career,
-    #education {
-        padding: 80px 20px;
+
+    .about-content h2 {
+        margin-bottom: 40px;
+
+        font-size: 45px;
     }
 
-    #about h4,
-    .job h4,
-    .study h4 {
-        font-size: 28px;
-        line-height: 1.3;
-    }
+    .about-grid {
+        grid-template-columns: 1fr;
 
-    .profil {
-        padding: 25px 20px;
-        font-size: 16px;
-        line-height: 1.7;
+        gap: 25px;
     }
 
 
     /* CAREER */
-    .timeline-item {
-        grid-template-columns: 1fr;
-        gap: 20px;
+
+    .career-content > h2 {
+        font-size: 45px;
     }
 
-    .timeline-item p {
-        width: 100%;
-        font-size: 16px;
+    .timeline-item {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
     }
 
     .timeline-images {
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .timeline-images img {
-        width: 90px;
-        height: 90px;
+        justify-content: flex-start;
     }
 
 
     /* EDUCATION */
-    .study .timeline p {
-        font-size: 16px;
-        line-height: 1.7;
+
+    .education-content h2 {
+        font-size: 45px;
+    }
+
+    .education-item {
+        grid-template-columns: 1fr;
+
+        gap: 10px;
     }
 
 
-    /* ANCHOR */
-    html {
-        scroll-padding-top: 120px;
+    /* CONTACT */
+
+    .contact-content h2 {
+        font-size: 50px;
     }
+
+    .contact-links {
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
 }
